@@ -6,8 +6,8 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // Built-in middleware to parse JSON
 
-const PORT = 4001; // Changed to 4001
-const HOST = "localhost";
+const PORT = 4001; 
+const HOST = '0.0.0.0';
 
 const notion = new Client({ auth: "secret_ikhdEKg1fIelkdD5oVTTzZyipi0yYbholvwwxtXmjCg" });
 const databaseId = "8554cd309ae54e36a5aa78b2766da7aa";
