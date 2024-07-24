@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 });
 
 app.post('/submitFormToNotion', async (req, res) => {
-    const { name, email, company, services, budget, message } = req.body;
+    const { name, email, company, services, phoneno, message } = req.body;
 
     // Validate required fields
     if (!name) {
