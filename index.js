@@ -34,9 +34,6 @@ app.post('/submitFormToNotion', async (req, res) => {
     if (!services) {
         return res.status(400).json({ error: "Services are empty" });
     }
-    if (!budget) {
-        return res.status(400).json({ error: "Budget is empty" });
-    }
     if (!message) {
         return res.status(400).json({ error: "Message is empty" });
     }
@@ -49,7 +46,7 @@ app.post('/submitFormToNotion', async (req, res) => {
                 Email: { email: email },
                 Name: { rich_text: [{ text: { content: name } }] },
                 Services: { rich_text: [{ text: { content: services } }] },
-                Budget: { rich_text: [{ text: { content: budget } }] },
+                Phoneno: { rich_text: [{ text: { content: phoneno } }] },
                 Message: { rich_text: [{ text: { content: message } }] }
             }
         });
