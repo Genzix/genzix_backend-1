@@ -15,7 +15,8 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // MongoDB connection
-mongoose.connect("mongodb+srv://teamgenzix:ITDSteeIc30cmM5t@cluster0.0s02h1h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+const mongoUri = process.env.MONGODB_URI;
+mongoose.connect(mongoUri);
 
 // Define the schema and model for form submissions
 const formSchema = new mongoose.Schema({
