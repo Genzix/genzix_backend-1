@@ -8,7 +8,7 @@ const dotenv = require("dotenv");
 dotenv.config(); // Load environment variables from .env file
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 // Middleware
 app.use(cors());
@@ -16,7 +16,9 @@ app.use(bodyParser.json());
 
 // MongoDB connection
 const mongoUri = process.env.MONGODB_URI;
-mongoose.connect(mongoUri);
+mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log("MongoDB connected"))
+    .catch(err => console.error("MongoDB connection error:", err));
 
 // Define the schema and model for form submissions
 const formSchema = new mongoose.Schema({
@@ -87,6 +89,11 @@ app.post('/submitFormToMongoDB', async (req, res) => {
         console.error("Error saving form data to MongoDB:", error);
         res.status(500).json({ success: false, error: "Failed to save form data." });
     }
+});
+
+// Root URL route to show a message in the browser
+app.get('/', (req, res) => {
+    res.send(`Server is running on http://localhost:${PORT}`);
 });
 
 // Start the server
