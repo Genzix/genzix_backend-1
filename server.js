@@ -111,8 +111,7 @@ app.post('/submitFormToMongoDB', async (req, res) => {
                     </div>
                     <p style="font-size: 16px; line-height: 1.6; margin-top: 20px; color: #000000;">
                         Best regards,<br/>
-                        <strong>Diwakar</strong><br/>
-                        Lead Generator <br/>Genzix
+                        <strong>Team Genzix</strong>
                     </p>
                     <div style="text-align: center; margin-top: 20px;">
                         <p style="font-size: 14px; color: #000000;">Follow us on social media:</p>
